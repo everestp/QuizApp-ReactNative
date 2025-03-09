@@ -1,6 +1,9 @@
 import { View ,Text,StyleSheet,SafeAreaView, Pressable } from "react-native";
 import QuestionCard from "../components/QuestionCard";
 import Entypo from '@expo/vector-icons/Entypo';
+
+import questions from "../questons/question";
+const question =questions[1] ;
   export default function QuizScreen(){
     return (
         <SafeAreaView style ={styles.page}>
@@ -12,7 +15,7 @@ import Entypo from '@expo/vector-icons/Entypo';
 </View>
 {/* Body */}
 <View>
-<QuestionCard/>
+<QuestionCard question ={question}/>
 <Text style={styles.time}>20 s</Text>
 </View>
 
