@@ -3,6 +3,7 @@ import QuestionCard from "../components/QuestionCard";
 import Entypo from '@expo/vector-icons/Entypo';
 
 import questions from "../questons/question";
+import CustomButton from "../components/CustomButton";
 const question =questions[1] ;
   export default function QuizScreen(){
     return (
@@ -15,15 +16,14 @@ const question =questions[1] ;
 </View>
 {/* Body */}
 <View>
-<QuestionCard question ={question}/>
+<QuestionCard  question ={question}/>
 <Text style={styles.time}>20 s</Text>
 </View>
 
 {/* Footer */}
-<Pressable  onPress={()=>console.warn("Next cliced")} style={styles.button}>
-<Text style={styles.buttonText}>Next</Text>
-<Entypo style={styles.buttonIcon} name="arrow-long-right" size={24} color="black" />
-</Pressable>
+<CustomButton title="Next" rightIcon={<Entypo name="arrow-long-right" size={24} color="white"/>}
+onLongPress={()=> console.log("Button Long Pressed")}
+onPress={()=>console.log("Button  is Pressed ")}/>
 </View>
         </SafeAreaView>
        
@@ -70,8 +70,7 @@ buttonText:{
 buttonIcon :{
     position :'absolute',
     right :20,
-    justifyContent :'center',
-    color:'white'
+    
     
 }
 

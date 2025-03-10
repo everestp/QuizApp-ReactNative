@@ -10,7 +10,7 @@ type QuestionCard ={
 }
 
 
-export default function QuestionCard({question,children}:QuestionCard){
+export default function QuestionCard({question}:QuestionCard){
     const  selectedOption = question.options[0]
     const onOptionSelected =(option:string)=>{
         console.log("selected",option)
@@ -19,8 +19,8 @@ export default function QuestionCard({question,children}:QuestionCard){
        
             <Card title={question.title}>
             <View style={{gap:10}}> 
-                {question.options.map((option,index)=>  <AnswerOption option={question.options[index]} isSelected={question.options[index] === selectedOption} onPress={()=>onOptionSelected(option)}/> )}
-             
+                {question.options.map((option,index)=>  <AnswerOption   option={question.options[index]} isSelected={question.options[index] === selectedOption} onPress={()=>onOptionSelected(option)}/> )}
+            
                </View>
               
             </Card>
