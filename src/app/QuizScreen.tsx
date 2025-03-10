@@ -4,13 +4,32 @@ import Entypo from '@expo/vector-icons/Entypo';
 
 import questions from "../questons/question";
 import CustomButton from "../components/CustomButton";
-import { useState,useContext } from "react";
+import { useState,useContext, useEffect } from "react";
 import {useQuizContext } from "../providers/QuizeProvider";
 import Card from "../components/Card";
 const question =questions[1] ;
   export default function QuizScreen(){ 
-const {question,questionIdx,onNext,score,totalQuestion}=useQuizContext();
-console.log(question)
+const {question,questionIdx,onNext,score,totalQuestion,bestScore}=useQuizContext();
+const [time,setTime] =useState(20);
+
+useEffect(()=>{
+//start count down
+setTime(4)
+ const interval = setInterval(() => {
+    setTime((t)=>t-1)
+}, 1000);
+return ()=>{
+    clearInterval(interval)
+}
+
+
+},[question])
+console.log("time",time)
+useEffect(()=>{
+    if(time<=0){
+        onNext()
+    }
+},[time])
 
     // const [questionIdx,setQuestiondx]=useState(0);
     // const question =questions[questionIdx]
@@ -27,13 +46,13 @@ console.log(question)
 {/* Body */}
 { question?(<View>
 <QuestionCard  question ={question}/>
-<Text style={styles.time}>20 s</Text>
+<Text style={styles.time}>{time} s</Text>
 </View>):(
     <Card title="Well done">
 <Text>
     Correct answers :{score}/{totalQuestion}
 </Text>
-<Text>Best Score :{score}</Text>
+<Text>Best Score :{bestScore}</Text>
     </Card>
 )}
 

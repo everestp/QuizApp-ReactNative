@@ -4,7 +4,7 @@ export default  [
     { title: 'What does CSS stand for?', options: ['Cascading Style Sheets', 'Cascading Script Sheets', 'Custom Style Sheets', 'Creative Style Sheets'], correctAnswer: 'Cascading Style Sheets' },
     { title: 'What does HTTP stand for?', options: ['Hyper Text Transfer Protocol', 'Hyper Text Transfer Portal', 'Hyperlink Text Transfer Protocol', 'Hyperlink Text Transfer Portal'], correctAnswer: 'Hyper Text Transfer Protocol' },
     { title: 'Which company developed the Java programming language?', options: ['Microsoft', 'Apple', 'Sun Microsystems', 'Google'], correctAnswer: 'Sun Microsystems' },
-    { title: 'Which language is used for web development and adds interactivity to websites?', options: ['JavaScript', 'Python', 'Ruby', 'C++'], correctAnswer: 'JavaScript' },
+   /* { title: 'Which language is used for web development and adds interactivity to websites?', options: ['JavaScript', 'Python', 'Ruby', 'C++'], correctAnswer: 'JavaScript' },
     { title: 'What does SQL stand for?', options: ['Structured Query Language', 'Structured Quotation Language', 'Simple Query Language', 'Standard Query Language'], correctAnswer: 'Structured Query Language' },
     { title: 'Which company developed the C programming language?', options: ['Microsoft', 'Apple', 'Bell Labs', 'Google'], correctAnswer: 'Bell Labs' },
     { title: 'What does RAM stand for?', options: ['Random Access Memory', 'Read-Only Memory', 'Rapid Access Memory', 'Random Access Module'], correctAnswer: 'Random Access Memory' },
@@ -168,5 +168,5 @@ export default  [
         "title": "What is the normal heart rate for a resting adult?",
         "options": ["40-60 bpm", "60-100 bpm", "100-140 bpm", "140-180 bpm"],
         "correctAnswer": "60-100 bpm"
-      }
+      } */
     ]
