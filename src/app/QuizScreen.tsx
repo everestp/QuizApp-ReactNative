@@ -4,26 +4,44 @@ import Entypo from '@expo/vector-icons/Entypo';
 
 import questions from "../questons/question";
 import CustomButton from "../components/CustomButton";
+import { useState,useContext } from "react";
+import {useQuizContext } from "../providers/QuizeProvider";
+import Card from "../components/Card";
 const question =questions[1] ;
-  export default function QuizScreen(){
+  export default function QuizScreen(){ 
+const {question,questionIdx,onNext,score,totalQuestion}=useQuizContext();
+console.log(question)
+
+    // const [questionIdx,setQuestiondx]=useState(0);
+    // const question =questions[questionIdx]
+
+  
     return (
         <SafeAreaView style ={styles.page}>
  <View style={styles.container}>
 
 {/* Header */}
 <View>
-<Text style={styles.title}>Question 1/5</Text>
+<Text  style={styles.title}>Question {questionIdx+1}/{totalQuestion}</Text>
 </View>
 {/* Body */}
-<View>
+{ question?(<View>
 <QuestionCard  question ={question}/>
 <Text style={styles.time}>20 s</Text>
-</View>
+</View>):(
+    <Card title="Well done">
+<Text>
+    Correct answers :{score}/{totalQuestion}
+</Text>
+<Text>Best Score :{score}</Text>
+    </Card>
+)}
+
 
 {/* Footer */}
-<CustomButton title="Next" rightIcon={<Entypo name="arrow-long-right" size={24} color="white"/>}
+<CustomButton title={questionIdx>=totalQuestion?"Restart":"Next"} rightIcon={<Entypo name="arrow-long-right" size={24} color="white"/>}
 onLongPress={()=> console.log("Button Long Pressed")}
-onPress={()=>console.log("Button  is Pressed ")}/>
+onPress={()=>onNext()}/>
 </View>
         </SafeAreaView>
        

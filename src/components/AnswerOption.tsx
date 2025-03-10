@@ -1,25 +1,26 @@
 import { useState } from "react";
 import { View ,Text,StyleSheet, Pressable} from "react-native";
 import question from "../questons/question";
+import { useQuizContext } from "../providers/QuizeProvider";
 
-type AnswerOptionProps  ={
+type AnswerOption  ={
     option :string;
-    isSelected :boolean;
-    onPress:()=> void;
+    
 
 }
 
-export default function AnswerOption({option ,isSelected,onPress}:AnswerOptionProps){
+export default function AnswerOption({option}:AnswerOption){
   
-  
+  const {selectedOption,setSelectedOption}=useQuizContext();
+  const isSelected = option === selectedOption
     return(
         <Pressable
         
-        onPress={onPress}
-        id={option} style={[styles.container, isSelected?{
+        onPress={()=>setSelectedOption(option)}
+         style={[styles.container, isSelected &&{
             backgroundColor:  "#E1f396",
             borderColor :"#E1f396"
-            }:{}
+            }
         
         ]}>
             <Text>{option}</Text>

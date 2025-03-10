@@ -9,7 +9,8 @@ type Card = PropsWithChildren<{
 
 export default function Card({title,children}:PropsWithChildren<Card>){
     return (
-       <View style ={styles.questionCard}>
+        
+       <View style ={styles.questionCard} id= {title}>
                   
                    <Text style={styles.title}>{title}</Text>  
                    {children}
